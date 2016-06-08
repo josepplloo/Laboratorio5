@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSalariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSalariosLabel_id}"/>
+                    <h:outputText value="#{salariosController.selected.id}" title="#{bundle.ViewSalariosTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewSalariosLabel_nombre}"/>
+                    <h:outputText value="#{salariosController.selected.nombre}" title="#{bundle.ViewSalariosTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewSalariosLabel_base}"/>
+                    <h:outputText value="#{salariosController.selected.base}" title="#{bundle.ViewSalariosTitle_base}"/>
+                    <h:outputText value="#{bundle.ViewSalariosLabel_extras}"/>
+                    <h:outputText value="#{salariosController.selected.extras}" title="#{bundle.ViewSalariosTitle_extras}"/>
+                    <h:outputText value="#{bundle.ViewSalariosLabel_vextra}"/>
+                    <h:outputText value="#{salariosController.selected.vextra}" title="#{bundle.ViewSalariosTitle_vextra}"/>
+                    <h:outputText value="#{bundle.ViewSalariosLabel_comision}"/>
+                    <h:outputText value="#{salariosController.selected.comision}" title="#{bundle.ViewSalariosTitle_comision}"/>
+                    <h:outputText value="#{bundle.ViewSalariosLabel_total}" rendered="false"/>
+                    <h:outputText value="#{salariosController.selected.total}" title="#{bundle.ViewSalariosTitle_total}" rendered="false"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{salariosController.destroyAndView}" value="#{bundle.ViewSalariosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSalariosEditLink}"/>
+                <br />
+                <h:commandLink action="#{salariosController.prepareCreate}" value="#{bundle.ViewSalariosCreateLink}" />
+                <br />
+                <h:commandLink action="#{salariosController.prepareList}" value="#{bundle.ViewSalariosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSalariosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

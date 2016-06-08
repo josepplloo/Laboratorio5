@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSalariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSalariosLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{salariosController.selected.id}" title="#{bundle.EditSalariosTitle_id}" required="true" requiredMessage="#{bundle.EditSalariosRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditSalariosLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{salariosController.selected.nombre}" title="#{bundle.EditSalariosTitle_nombre}" required="true" requiredMessage="#{bundle.EditSalariosRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditSalariosLabel_base}" for="base" />
+                    <h:inputText id="base" value="#{salariosController.selected.base}" title="#{bundle.EditSalariosTitle_base}" required="true" requiredMessage="#{bundle.EditSalariosRequiredMessage_base}"/>
+                    <h:outputLabel value="#{bundle.EditSalariosLabel_extras}" for="extras" />
+                    <h:inputText id="extras" value="#{salariosController.selected.extras}" title="#{bundle.EditSalariosTitle_extras}" required="true" requiredMessage="#{bundle.EditSalariosRequiredMessage_extras}"/>
+                    <h:outputLabel value="#{bundle.EditSalariosLabel_vextra}" for="vextra" />
+                    <h:inputText id="vextra" value="#{salariosController.selected.vextra}" title="#{bundle.EditSalariosTitle_vextra}" required="true" requiredMessage="#{bundle.EditSalariosRequiredMessage_vextra}"/>
+                    <h:outputLabel value="#{bundle.EditSalariosLabel_comision}" for="comision" />
+                    <h:inputText id="comision" value="#{salariosController.selected.comision}" title="#{bundle.EditSalariosTitle_comision}" required="true" requiredMessage="#{bundle.EditSalariosRequiredMessage_comision}"/>
+                    <h:outputLabel value="#{bundle.EditSalariosLabel_total}" for="total" rendered="false"/>
+                    <h:inputText id="total" value="#{salariosController.selected.total}" title="#{bundle.EditSalariosTitle_total}" required="true" requiredMessage="#{bundle.EditSalariosRequiredMessage_total}" rendered="false"/>
+                </h:panelGrid>
+                <h:commandLink action="#{salariosController.update}" value="#{bundle.EditSalariosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSalariosViewLink}"/>
+                <br />
+                <h:commandLink action="#{salariosController.prepareList}" value="#{bundle.EditSalariosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSalariosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
